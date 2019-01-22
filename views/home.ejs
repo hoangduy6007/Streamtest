@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>PANDA EGGS</title>
+  </head>
+  <body style="background-image: url(https://www.toptal.com/designers/subtlepatterns/patterns/swirl_pattern.png)";>
+  <div align="center" style="color:brown">
+    <h1><b>STREAM</b></h1>
+
+    <video id="localStream" width="800" height="800" controls></video>
+  </div>
+  </body>
+  <script>
+      navigator.mediaDevices.getUserMedia({audio: false, video: true})
+      .then(function(mediaStream) {
+  var video = document.querySelector('video');
+  video.srcObject = mediaStream;
+  video.onloadedmetadata = function(e) {
+    video.play();
+  };
+})
+      .catch(err => console.log(err));
+  </script>
+</html>
